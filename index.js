@@ -30,3 +30,8 @@ const PORT = process.env.PORT || 4000;
 server.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+socket.on('message', ({ username, text }) => {
+  console.log('Received message from client:', { username, text }); // Add this line
+  const timestamp = moment().format('h:mm A'); // Format timestamp
+  io.emit('message', { username, text, timestamp });
+});

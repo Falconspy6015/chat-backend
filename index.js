@@ -1,13 +1,13 @@
 const express = require('express');
 const http = require('http');
 const socketIo = require('socket.io');
-const moment = require('moment'); // Install with `npm install moment`
+const moment = require('moment'); // Ensure moment is installed
 
 const app = express();
 const server = http.createServer(app);
 const io = socketIo(server, {
   cors: {
-    origin: "http://localhost:3001", // Update this to match your frontend port
+    origin: "*", // Allows all origins; update this to match your frontend URL in production
     methods: ["GET", "POST"]
   }
 });
